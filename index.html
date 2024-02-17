@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Crud</title>
+  </head>
+  <body>
+    <div class="container">
+        <div class="input-group my-3">
+            <input type="search" class="form-control search-input" placeholder="Searching teachers...">
+            <div class="input-group-text">
+                <select class="form-select  filter-group-select" id="position" aria-label="Default select example">
+                    
+                </select>                
+            </div>
+            <button class="btn btn-outline-success add-btn" type="button" data-bs-toggle="modal" data-bs-target="#student-modal">Add person</button>
+        </div>
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">No</th>
+                <th scope="col">FirstName</th>
+                <th scope="col">LastName</th> <!--che-->
+                <th scope="col">Address</th> <!--text-->
+                <th scope="col">BirthDate</th> <!--date-->
+                <th scope="col">Position</th> <!--select(ReactJs Developer / NodeJs Developer / Go Developer, ....)-->
+                <th scope="col">TypePosition</th> <!--select(junior , middle , senior)-->
+                <th scope="col">Salary</th> <!--number-->
+                <th scope="col">isMarried</th> <!--checkbox-->
+                <th scope="col" class="text-end">Action</th>
+              </tr>
+            </thead>
+            <tbody class="teachers-row">
+              
+            </tbody>
+        </table>
+        <div class="modal fade" id="student-modal">
+            <form class="teacher-form" novalidate>
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Teacher data</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                                <div class="mb-3">
+                                    <label for="lastName" class="form-label">First Name</label>
+                                    <input required type="text" class="form-control" id="firstName" placeholder="Firstname">
+                                    <div class="valid-feedback">Thank you for filling !</div>
+                                    <div class="invalid-feedback">Please fill the field !</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="lastName" class="form-label">Last Name</label>
+                                    <input required type="text" class="form-control" id="lastName" placeholder="Lastname">
+                                    <div class="valid-feedback">Thank you for filling !</div>
+                                    <div class="invalid-feedback">Please fill the field !</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="address" class="form-label">Address</label>
+                                    <input required type="text" class="form-control" id="address" placeholder="Address">
+                                    <div class="valid-feedback">Thank you for filling !</div>
+                                    <div class="invalid-feedback">Please fill the field !</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="birthDate" class="form-label">Birth Date</label>
+                                    <input required type="date" class="form-control" id="birthDate" placeholder="Birth date">
+                                    <div class="valid-feedback">Thank you for filling !</div>
+                                    <div class="invalid-feedback">Please fill the field !</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="position" class="form-label my-3">TypePosition</label>
+                                    <select class="form-select group-select" id="position" aria-label="Default select example">
+                                        
+                                    </select>
+                                    <div class="valid-feedback">Thank you for filling !</div>
+                                    <div class="invalid-feedback">Please fill the field !</div>                
+                                </div>
+                                <div class="mb-3">
+                                    <label for="TypePosition" class="form-label my-3">TypePosition</label>
+                                    <select class="form-select typeoption-select-filter" id="TypePosition" aria-label="Default select example">
+                                        
+                                    </select>
+                                    <div class="valid-feedback">Thank you for filling !</div>
+                                    <div class="invalid-feedback">Please fill the field !</div>
+                                </div>
+                                <div class="my-3">
+                                    <label for="Salary" class="form-label">Salary</label>
+                                    <input required type="text" class="form-control" id="Salary" placeholder="Salary">
+                                    <div class="valid-feedback">Thank you for filling !</div>
+                                    <div class="invalid-feedback">Please fill the field !</div>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="isMarried">
+                                    <label class="form-check-label" for="isMarried">
+                                    isMarried?
+                                    </label>
+                                    <div class="valid-feedback">Thank you for filling !</div>
+                                    <div class="invalid-feedback">Please fill the field !</div>
+                                </div>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary save-teacher-btn">Add Teacher</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal fade" id="confirm-modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">Do you want to delete this</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-success yes-btn">Yes</button>
+                        <button class="btn btn-primary no-btn">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="/js/const.js"></script>
+    <script src="/js/main.js"></script>
+  </body>
+</html>
